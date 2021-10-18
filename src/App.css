@@ -6,6 +6,22 @@
   height: 40vmin;
   pointer-events: none;
 }
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  justify-content: space-between;
+  align-items: center;
+  background-color:burlywood;
+ 
+}
+.content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+  margin:10px 0;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
