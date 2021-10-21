@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Button} from 'react-bootstrap';
+import { Button,FormControl} from 'react-bootstrap';
 import Img from "./img.jpg"
 import './App.css';
 
@@ -9,12 +9,20 @@ class App extends React.Component{
         super();
         this.state={
           person:{ fullName:"Rahma khaldi",bio:"bonjour,ijiojdgioejzuh", imgSrc:Img, profession:"développeuse"} ,
-          show:false
+          show:false,
+          count:0,
+          intervalId:0,
         }
         // if method is not arrow function
         // this.handleShow=this.handleShow.bind(this)
     }
-    
+    componentDidMount(){
+      this.intervalId = setInterval(()=>{this.setState({count:this.state.count+1})}, 1000);
+  }
+  componentWillUnmount()
+  {
+      clearInterval(this.intervalId)
+  }
     handleShow=()=>{
         this.setState({
             show:!this.state.show
@@ -36,7 +44,7 @@ class App extends React.Component{
                    <div>{this.state.person.profession}</div>
                   
                    </div>
-                   
+                   <p>{this.state.count}</p>
                    </div>
                }
             </div>
